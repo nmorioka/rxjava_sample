@@ -3,9 +3,7 @@ package flowable.a_operate;
 import io.reactivex.Flowable;
 import io.reactivex.schedulers.Schedulers;
 
-/**
- * Created by morioka b_on 2017/03/08.
- */
+
 public class flatMap {
 
     public static void main(String[] args) {
