@@ -1,6 +1,8 @@
 package flowable.b_on;
 
 import io.reactivex.Flowable;
+import io.reactivex.Scheduler;
+import io.reactivex.schedulers.Schedulers;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,6 +23,7 @@ public class doFinally {
         List<String> m1 = Arrays.asList("hoge1", "hoge2");
 
         Flowable.fromIterable(contents)
+                .subscribeOn(Schedulers.io())
                 .doFinally(() -> System.out.println("finally1"))
                 .flatMap(content -> {
                     return Flowable.fromIterable(content.mediaList).filter(s -> m1.contains(s)).doFinally(() -> System.out.println("finally2"));
