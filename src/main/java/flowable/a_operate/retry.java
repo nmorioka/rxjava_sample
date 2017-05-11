@@ -18,8 +18,7 @@ public class retry {
                     // retry可否コード
                     return true;
                 })
-                .subscribe(System.out::println);
-        Thread.sleep(1000L);
+                .blockingSubscribe(System.out::println);
     }
-    
+
 }
